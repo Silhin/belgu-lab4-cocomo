@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.silhin.cocomo.MainPageController">
+    <fx:define>
+        <ToggleGroup fx:id="projectTypeGroup" />
+        <ToggleGroup fx:id="scoreTypeGroup" />
+    </fx:define>
+    <VBox prefHeight="240.0" prefWidth="800.0">
+        <MenuBar VBox.vgrow="NEVER">
+            <Menu mnemonicParsing="false" text="Проект">
+                <Menu mnemonicParsing="false" text="Изменить уровень">
+                    <RadioMenuItem mnemonicParsing="false" text="Базовый" selected="true" userData="0" toggleGroup="$projectTypeGroup" />
+                    <RadioMenuItem mnemonicParsing="false" text="Промежуточный" userData="1" toggleGroup="$projectTypeGroup"/>
+                    <RadioMenuItem mnemonicParsing="false" text="Детальный" userData="2" toggleGroup="$projectTypeGroup"/>
+                </Menu>
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <Menu mnemonicParsing="false" text="Изменить тип оценки">
+                    <RadioMenuItem mnemonicParsing="false" text="Предварительная" selected="true" userData="0" toggleGroup="$scoreTypeGroup"/>
+                    <RadioMenuItem mnemonicParsing="false" text="Детальная" userData="1" toggleGroup="$scoreTypeGroup"/>
+                </Menu>
+            </Menu>
+        </MenuBar>
+        <AnchorPane prefHeight="240.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+            <Label layoutX="14.0" layoutY="14.0" text="Тип проекта" />
+            <ComboBox fx:id="projectType" layoutX="14.0" layoutY="37.0" prefHeight="26.0" prefWidth="201.0" />
+            <Label layoutX="14.0" layoutY="87.0" text="Объем ПО в тысячах строчках кода" />
+            <TextField fx:id="size" layoutX="14.0" layoutY="105.0" prefHeight="26.0" prefWidth="201.0" />
+            <GridPane fx:id="gridPane" layoutX="18.0" layoutY="153.0" prefHeight="450.0" prefWidth="810.0"/>
+            <Label layoutX="643.0" layoutY="14.0" text="Трудоемкость (чел x месяц)" />
+            <TextField fx:id="complexityField" editable="false" layoutX="643.0" layoutY="37.0" prefHeight="26.0" prefWidth="188.0" />
+            <Label layoutX="643.0" layoutY="87.0" text="Время разработки в месяцах" />
+            <TextField fx:id="timeField" editable="false" layoutX="643.0" layoutY="105.0" prefHeight="26.0" prefWidth="191.0" />
+            <Button onAction="#calc" layoutX="348.0" layoutY="63.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Рассчитать" />
+        </AnchorPane>
+    </VBox>
+</Scene>
